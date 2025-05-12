@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Northside Barber Shop</title>
+
+  <!-- Font Awesome for star icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 24px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      margin: 0;
+    }
+
+    .rating {
+      margin: 16px 0 8px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .stars i {
+      color: #f5b301;
+      margin-right: 2px;
+    }
+
+    .review-count {
+      color: #555;
+      font-style: italic;
+      margin-left: 6px;
+    }
+
+    .info {
+      margin-top: 10px;
+    }
+
+    .info p {
+      margin: 6px 0;
+    }
+
+    .open-status {
+      color: green;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .btn.directions {
+      background-color: #1a73e8;
+      color: #fff;
+    }
+
+    .btn.call {
+      border: 2px solid #1a73e8;
+      color: #1a73e8;
+      background-color: transparent;
+    }
+
+    .btn.call:hover {
+      background-color: #e6f0ff;
+    }
+
+    .review {
+      font-style: italic;
+      margin-top: 16px;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="logo" src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr3mvW4UnfWlpj8c9oThcwnqx7_ku4_n0Y6NDy3OH4IGAkInkAFbDGT3jADW3RSAdybYKurG6LLFaPNcrbIUD64xaANigYSJDmNpc4UhBi_xUFJun0X_rnNr3fSkgXpVrTzl-ls=w114-h114-n-k-no" alt="Logo">
+      <h1>Northside<br>Barber Shop</h1>
+    </header>
+
+    <div class="rating">
+      4.5
+      <span class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </span>
+      <span class="review-count">–162 reviews</span>
+    </div>
+
+    <div class="info">
+      <p><strong>Barber shop</strong></p>
+      <p><span class="open-status">Open</span> • Closes 5 pm</p>
+      <p>1632 W University Dr, Denton, TX 76201,<br>United States</p>
+    </div>
+
+    <div class="buttons">
+      <a class="btn directions" href="https://maps.google.com/maps?um=1&fb=1&gl=in&sa=X&geocode=KUsViQJ3yk2GMVwxMhhKzBEg&daddr=1632+W+University+Dr,+Denton,+TX+76201,+United+States&ved=2ahUKEwjN076ZsoCNAxVX0oQAHdHkIAMQ48ADegUIABC3AQ" target="_blank">Directions</a>
+      <a class="btn call" href="tel:+19403823003">Call</a>
+    </div>
+
+    <p class="review">"They took us in right before closing so that was great and cut was super."</p>
+  </div>
+
+  <footer>
+    &copy; 2025 Northside Barber Shop
+  </footer>
+</body>
+</html>
