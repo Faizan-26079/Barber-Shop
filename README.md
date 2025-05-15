@@ -1,2 +1,491 @@
-# Barber-Shop
-sample html &amp; css landing page 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Northside Barber Shop - Professional haircuts in Denton, TX">
+  <title>Northside Barber Shop - Denton, TX</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr3mvW4UnfWlpj8c9oThcwnqx7_ku4_n0Y6NDy3OH4IGAkInkAFbDGT3jADW3RSAdybYKurG6LLFaPNcrbIUD64xaANigYSJDmNpc4UhBi_xUFJun0X_rnNr3fSkgXpVrTzl-ls=w114-h114-n-k-no" type="image/png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-light: #e6f0ff;
+      --secondary: #f5b301;
+      --text: #333;
+      --text-light: #555;
+      --text-lighter: #888;
+      --bg: #f2f2f7;
+      --white: #fff;
+      --success: #28a745;
+      --danger: #dc3545;
+      --border-radius: 16px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1470&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      margin: 20px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: var(--border-radius);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-light);
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: rotate(15deg);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .rating-value {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .stars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .stars i {
+      color: var(--secondary);
+    }
+
+    .review-count {
+      color: var(--text-lighter);
+      font-size: 0.95rem;
+    }
+
+    .info {
+      margin: 20px 0;
+    }
+
+    .info p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info p i {
+      width: 20px;
+      color: var(--primary);
+    }
+
+    .open-status {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .closed-status {
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn.directions {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .btn.directions:hover {
+      background-color: #0d5bba;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn.call {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background-color: transparent;
+    }
+
+    .btn.call:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .review {
+      background-color: var(--primary-light);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .review:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .review:before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: -10px;
+      left: 5px;
+    }
+
+    .review-text {
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-author {
+      display: block;
+      margin-top: 8px;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-lighter);
+      margin-top: 30px;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Floating barber pole animation */
+    .barber-pole {
+      position: absolute;
+      width: 30px;
+      height: 100px;
+      background: linear-gradient(135deg, red 0%, red 33%, white 33%, white 66%, blue 66%, blue 100%);
+      border-radius: 15px;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.8;
+      z-index: -1;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translateY(-50%) rotate(0deg); }
+      100% { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+        margin: 15px;
+      }
+      
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      
+      .buttons {
+        flex-direction: column;
+      }
+
+      .barber-pole {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-pattern"></div>
+  <div class="container">
+    <div class="barber-pole"></div>
+    <header>
+      <img class="logo" src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr3mvW4UnfWlpj8c9oThcwnqx7_ku4_n0Y6NDy3OH4IGAkInkAFbDGT3jADW3RSAdybYKurG6LLFaPNcrbIUD64xaANigYSJDmNpc4UhBi_xUFJun0X_rnNr3fSkgXpVrTzl-ls=w114-h114-n-k-no" alt="Northside Barber Shop Logo">
+      <h1>Northside<br>Barber Shop</h1>
+    </header>
+
+    <div class="rating">
+      <span class="rating-value">4.5</span>
+      <span class="stars">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+      </span>
+      <span class="review-count">162 reviews</span>
+    </div>
+
+    <div class="info">
+      <p><i class="fas fa-cut"></i> <strong>Professional Barber Shop</strong></p>
+      <p><i class="fas fa-clock"></i> <span id="open-status" class="open-status">Open now</span> • <span id="hours-text">Closes at 5 PM</span></p>
+      <p><i class="fas fa-map-marker-alt"></i> 1632 W University Dr, Denton, TX 76201, United States</p>
+    </div>
+
+    <div class="buttons">
+      <a class="btn directions" href="https://maps.google.com/maps?um=1&fb=1&gl=in&sa=X&geocode=KUsViQJ3yk2GMVwxMhhKzBEg&daddr=1632+W+University+Dr,+Denton,+TX+76201,+United+States&ved=2ahUKEwjN076ZsoCNAxVX0oQAHdHkIAMQ48ADegUIABC3AQ" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-directions"></i> Directions
+      </a>
+      <a class="btn call" href="tel:+19403823003">
+        <i class="fas fa-phone-alt"></i> Call
+      </a>
+    </div>
+
+    <div class="review">
+      <p class="review-text">They took us in right before closing so that was great and the cut was super clean. Highly recommend!</p>
+      <span class="review-author">— James Wilson, Google Review</span>
+    </div>
+
+    <!-- Appointment Form (Hidden by default) -->
+    <div id="appointment-form" style="display: none; margin-top: 20px;">
+      <h3>Book an Appointment</h3>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" name="service">
+            <option value="Haircut">Haircut</option>
+            <option value="Beard Trim">Beard Trim</option>
+            <option value="Haircut + Beard">Haircut + Beard</option>
+            <option value="Kids Cut">Kids Cut</option>
+          </select>
+        </div>
+        <button type="submit" class="btn directions" style="margin-top: 10px;">
+          <i class="fas fa-calendar-check"></i> Book Now
+        </button>
+      </form>
+    </div>
+
+    <!-- Book Appointment Button -->
+    <button id="book-btn" class="btn directions" style="margin-top: 15px; width: 100%;">
+      <i class="fas fa-calendar-alt"></i> Book Appointment
+    </button>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Northside Barber Shop. All rights reserved.
+  </footer>
+
+  <script>
+    // Update copyright year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Dynamic background effect
+    const backgroundPattern = document.querySelector('.background-pattern');
+    let posX = 0, posY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      posX = (e.clientX / window.innerWidth - 0.5) * 20;
+      posY = (e.clientY / window.innerHeight - 0.5) * 20;
+      backgroundPattern.style.transform = `translate(${posX}px, ${posY}px)`;
+    });
+
+    // Dynamic business hours and status
+    function updateBusinessStatus() {
+      const now = new Date();
+      const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+      const hour = now.getHours();
+      const statusElement = document.getElementById('open-status');
+      const hoursTextElement = document.getElementById('hours-text');
+
+      // Business hours: Mon-Sat 9AM-5PM
+      const isOpen = day >= 1 && day <= 6 && hour >= 9 && hour < 17;
+      
+      if (isOpen) {
+        statusElement.textContent = 'Open now';
+        statusElement.className = 'open-status';
+        hoursTextElement.textContent = `Closes at ${5 > 12 ? 5-12 + 'PM' : 5 + 'PM'}`;
+      } else {
+        statusElement.textContent = 'Closed now';
+        statusElement.className = 'closed-status';
+        
+        if (day === 0) { // Sunday
+          hoursTextElement.textContent = 'Opens Monday at 9AM';
+        } else if (hour < 9) {
+          hoursTextElement.textContent = 'Opens at 9AM';
+        } else {
+          hoursTextElement.textContent = 'Opens tomorrow at 9AM';
+        }
+      }
+    }
+
+    // Toggle appointment form
+    const bookBtn = document.getElementById('book-btn');
+    const appointmentForm = document.getElementById('appointment-form');
+    
+    bookBtn.addEventListener('click', () => {
+      if (appointmentForm.style.display === 'none') {
+        appointmentForm.style.display = 'block';
+        bookBtn.innerHTML = '<i class="fas fa-times"></i> Cancel';
+      } else {
+        appointmentForm.style.display = 'none';
+        bookBtn.innerHTML = '<i class="fas fa-calendar-alt"></i> Book Appointment';
+      }
+    });
+
+    // Form submission
+    const bookingForm = document.getElementById('booking-form');
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      
+      // In a real app, you would send this to your server
+      alert(`Thanks, ${name}! Your ${service} appointment request has been received. We'll call you at ${phone} to confirm.`);
+      
+      // Reset form
+      bookingForm.reset();
+      appointmentForm.style.display = 'none';
+      bookBtn.innerHTML = '<i class="fas fa-calendar-alt"></i> Book Appointment';
+    });
+
+    // Initialize business status
+    updateBusinessStatus();
+    // Update status every minute
+    setInterval(updateBusinessStatus, 60000);
+
+    // Animate stars on hover
+    const stars = document.querySelectorAll('.stars i');
+    stars.forEach((star, index) => {
+      star.addEventListener('mouseover', () => {
+        star.style.transform = 'scale(1.2)';
+        star.style.transition = 'transform 0.2s ease';
+      });
+      star.addEventListener('mouseout', () => {
+        star.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
