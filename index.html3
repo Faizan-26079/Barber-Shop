@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Northside Barber Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+    }
+
+    .container {
+      max-width: 1230px;
+      margin: 40px auto;
+      padding: 24px;
+      background-color: #ffffff;
+      border-radius: 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      
+    }
+
+    .btn {
+      position: relative;
+      padding: 10px;
+      font-size: 1rem;
+      color: #808080;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+       color: #935116;
+    }
+
+
+    /* Tooltip box */
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 6px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 0.85rem;
+      z-index: 10;
+    }
+
+    .tooltip:hover::after {
+      opacity: 1;
+    }
+  .header-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.header-icons i:hover {
+  color: #000;
+}
+.header-icons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icons i {
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+#search-input {
+  display: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+.quote-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; 
+  background-color: #25201e;
+  padding: 0; 
+  border-radius: 0;
+  margin-top: 20px;
+ 
+  overflow: hidden;
+}
+
+.quote-text {
+  color: #c0c0c0;
+  font-size: 2.2rem;
+  font-family:Castellar;
+ 
+  padding: 30px 20px;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.quote-logo {
+  height: 100%;
+}
+
+.quote-logo img {
+  height: 410px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 100px 0 0 100px;  /* Left: circular, Right: square */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.find-location-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #935116;
+  font-family: Century;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.find-location-btn i {
+  margin-right: 8px;
+}
+
+.find-location-btn:hover {
+  background-color: white;
+  color: #935116;
+  border-color: #935116;
+}
+
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #c0c0c0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="logo" src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr3mvW4UnfWlpj8c9oThcwnqx7_ku4_n0Y6NDy3OH4IGAkInkAFbDGT3jADW3RSAdybYKurG6LLFaPNcrbIUD64xaANigYSJDmNpc4UhBi_xUFJun0X_rnNr3fSkgXpVrTzl-ls=w114-h114-n-k-no" alt="Logo">
+      <h style="font-family:Lucida Handwriting"><b>Northside Barber Shop</b></h>
+      <div class="buttons"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn tooltip" data-tooltip="Open">Status</a>    
+        <a class="btn tooltip" data-tooltip="Barber Shop">Category</a>
+        <a class="btn tooltip" data-tooltip="Haircuts • Beard Trims">Services</a>
+        <a class="btn tooltip" data-tooltip="4.5 Stars">Rating</a>
+        <a class="btn tooltip" data-tooltip=" They took us in right before closing so that was great and cut was super">Reviews</a>
+        <a class="btn tooltip" data-tooltip="Closes 5 pm">Closing Time</a>    
+        <a class="btn directions" href="https://maps.google.com/maps?daddr=1632+W+University+Dr,+Denton,+TX" target="_blank">Directions</a>
+        <a class="btn call" href="tel:+19403823003" style="color: green;"><i class="fas fa-phone"></i></a>
+      </div>
+    
+  
+ 
+ <div class="header-icons">
+  <i class="fas fa-search" id="search-icon"></i>
+  <input type="text" id="search-input" placeholder="Search..." />&nbsp;&nbsp;&nbsp;&nbsp;
+  <i class="fas fa-bars"></i>
+</div>
+
+</header>
+<div class="quote-section">
+  
+<div class="quote-text">
+  <div style="text-align: center; width: 100%;">
+    <br/><br/>The best BARBER shop !<br/> Best haircut in town every single time - Look good,<br/> Feel sharp !
+    <br/><br/>
+    <a class="btn tooltip find-location-btn" 
+   href="https://maps.google.com/maps?daddr=1632+W+University+Dr,+Denton,+TX" 
+   target="_blank">
+  <i class="fas fa-map-marker-alt"></i> Find Location
+</a>
+
+  </div><br/><br/>
+</div>
+
+
+  <div class="quote-logo">
+    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr3mvW4UnfWlpj8c9oThcwnqx7_ku4_n0Y6NDy3OH4IGAkInkAFbDGT3jADW3RSAdybYKurG6LLFaPNcrbIUD64xaANigYSJDmNpc4UhBi_xUFJun0X_rnNr3fSkgXpVrTzl-ls=w114-h114-n-k-no" alt="Barber Logo" />
+  </div>
+</div>
+
+</div>
+
+
+  <footer>
+    &copy; 2025 Northside Barber Shop
+  </footer>
+<script>
+  const searchIcon = document.getElementById('search-icon');
+  const searchInput = document.getElementById('search-input');
+
+  searchIcon.addEventListener('click', () => {
+    searchInput.style.display = (searchInput.style.display === 'inline-block') ? 'none' : 'inline-block';
+    if (searchInput.style.display === 'inline-block') {
+      searchInput.focus();
+    }
+  });
+</script>
+
+</body>
+</html>
